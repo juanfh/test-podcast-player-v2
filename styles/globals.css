@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  @apply text-zinc-700;
+  @apply bg-zinc-200;
+}
+
+.aspect-1 {
+  aspect-ratio: 1;
+}
+
+.wysiwygeditor {
+  display       : flex;
+  flex-direction: column;
+  gap           : 0.5rem;
+}
+
+.wysiwygeditor ul {
+  display             : block;
+  list-style-type     : disc;
+  margin-block-start  : 1em;
+  margin-block-end    : 1em;
+  margin-inline-start : 0px;
+  margin-inline-end   : 0px;
+  padding-inline-start: 40px;
+}
+
+.wysiwygeditor li {
+  display: list-item;
+}
+
+.wysiwygeditor strong {
+  @apply text-fuchsia-600;
+  @apply font-bold;
+}
+
+.wysiwygeditor blockquote {
+  display            : block;
+  margin-block-start : 1em;
+  margin-block-end   : 1em;
+  margin-inline-start: 40px;
+  margin-inline-end  : 40px;
+}
+
+.wysiwygeditor a {
+  @apply text-fuchsia-600;
+  @apply font-bold;
+}
