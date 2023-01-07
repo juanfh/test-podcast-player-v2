@@ -1,9 +1,10 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
+import Link from "next/link"
 import { GetStaticPaths } from "next"
 
 import { LocaleProps, WebSectionProps } from "../../../../../types/navigation"
-import { PodcastEpisodeProps, PodcastProps, PodcastWithEpisodesProps } from "../../../../../types/podcast"
+import { PodcastEpisodeProps, PodcastWithEpisodesProps } from "../../../../../types/podcast"
 
 import { getPodcastsDetail } from "../../../../api/getPodcastsDetail"
 
@@ -18,7 +19,6 @@ import { Button } from "../../../../../components/common/Button"
 import { Icon } from "../../../../../components/common/Icon"
 import { Breadcrumbs } from "../../../../../components/common/Breadcrumbs"
 import { Breadcrumb } from "../../../../../components/common/Breadcrumb"
-import { getPodcastsList } from "../../../../api/getPodcastsList"
 
 export default function EpisodeDetail(props: WebSectionProps) {
   const { section, pageContent, locale } = props
@@ -72,7 +72,9 @@ export default function EpisodeDetail(props: WebSectionProps) {
                   <Icon icon="angles-right" />
                   <Breadcrumb url={`/podcast/${podcastId}/episode/${episodeId}`} title={episodeDetail.title} position="3" />
                 </Breadcrumbs>
-                <Button icon="rotate-back" label={maintexts.back_to_episodes_list} className="w-full sm:w-auto text-xs px-2 py-1" onClick={() => router.back()} />
+                <Link href={`/podcast/${podcastId}`}>
+                  <Button icon="rotate-back" label={maintexts.back_to_episodes_list} className="w-full sm:w-auto text-xs px-2 py-1" />
+                </Link>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6" itemScope itemType="https://schema.org/PodcastEpisode">
                 <meta itemProp="url" content={schemaUrl} />
