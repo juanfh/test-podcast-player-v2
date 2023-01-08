@@ -27,7 +27,7 @@ export const getPodcastsDetail = async (podcastId: string) => {
     const feed = await parser.parseURL(data?.results[0]?.feedUrl)
 
     if (feed) {
-      const mappedPodcastDetail = mapPodcastDetail(podcastId, feed)
+      const mappedPodcastDetail = mapPodcastDetail(podcastId, data?.results[0], feed)
       return mappedPodcastDetail
     }
 

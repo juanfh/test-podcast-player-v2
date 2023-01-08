@@ -19,13 +19,13 @@ export const mapPodcasts = (podcasts: any): PodcastProps[] => {
   return data
 }
 
-export const mapPodcastDetail = (podcastId: string, podcast: any): PodcastWithEpisodesProps => {
+export const mapPodcastDetail = (podcastId: string, data: any, podcast: any): PodcastWithEpisodesProps => {
   return {
     id: podcastId,
-    title: podcast?.title || '',
-    author: podcast?.itunes?.author || '',
+    title: data?.trackName || podcast?.title || '',
+    author: data?.artistName || podcast?.itunes?.author || '',
     summary: podcast?.description || '',
-    image: podcast?.image?.url || '',
+    image: data?.artworkUrl600 || podcast?.image?.url || '',
     episodes: podcast?.items?.map((episode: any) => (
       {
         id: episode?.guid ? createSlug(episode.guid) : '',
